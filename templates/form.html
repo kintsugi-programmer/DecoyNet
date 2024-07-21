@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Honeypot Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Contact Form</h1>
+    <form id="myformid" action="/submit" method="post">
+        <!-- Real fields -->
+        <!-- autocomplete="off" -->
+        <label for="nameksljf">Your Name</label>
+        <input type="text" id="nameksljf" name="nameksljf" placeholder="Your name here" required maxlength="100" autocomplete="off">
+        <label for="emaillkjkl">Your E-mail</label>
+        <input type="email" id="emaillkjkl" name="emaillkjkl" placeholder="Your e-mail here" required autocomplete="off">
+        <!-- H o n e y p o t -->
+        <label class="ohnohoney" for="name"></label>
+        <input class="ohnohoney" autocomplete="off" type="text" id="name" name="name" placeholder="Your name here">
+        <label class="ohnohoney" for="email"></label>
+        <input class="ohnohoney" autocomplete="off" type="email" id="email" name="email" placeholder="Your e-mail here">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
