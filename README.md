@@ -1,12 +1,9 @@
-expand
-sql
-script
-env
-good form
-documentation
-future
-
 # DecoyNet
+
+hpot
+pip install flask pandas plotly
+dtx000 to dtx101
+
 
 Honeypots: Tracking Hackers
 

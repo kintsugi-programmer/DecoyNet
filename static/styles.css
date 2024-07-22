@@ -1,4 +1,94 @@
-.ohnohoney {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6b00, #1a1a1a);
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(255, 107, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  h1 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    text-align: center;
+    color: #ff6b00;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 30px;
+  }
+  
+  label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #ff9d4d;
+  }
+  
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ff6b00;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: rgba(26, 26, 26, 0.8);
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="email"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #ff9d4d;
+    box-shadow: 0 0 8px rgba(255, 107, 0, 0.5);
+    outline: none;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  button {
+    background-color: #ff6b00;
+    color: white;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background-color: #ff8c33;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hpot {
     opacity: 0;
     position: absolute;
     top: 0;
@@ -6,4 +96,4 @@
     height: 0;
     width: 0;
     z-index: -1;
-}
+  }
