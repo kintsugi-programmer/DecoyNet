@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .index-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .index-heading {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ff6b00;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .index-paragraph {
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .index-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+            max-width: 450px;
+            width: 100%; /* Ensure button takes full width of the container */
+            box-sizing: border-box; /* Ensure padding is included in the width */
+        }
+        
+        .index-buttons a {
+            text-decoration: none;
+        }
+        
+        .index-button {
+            background-color: #ff6b00;
+            color: white;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .index-button:hover {
+            background-color: #ff8c33;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="index-heading">Welcome to Our Project</h1>
+        <p class="index-paragraph">
+            Our project aims to provide an efficient and user-friendly platform for collecting and analyzing customer feedback. 
+            We ensure the integrity of submissions and use advanced techniques to detect and manage spam. 
+            Explore the different sections below to interact with our feedback form and view detailed analytics.
+        </p>
+        <div class="index-buttons">
+            <a href="/form" class="index-button">Go to Feedback Form</a>
+            <a href="/dashboard" class="index-button">View Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

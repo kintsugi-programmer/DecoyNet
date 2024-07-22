@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b00, #1a1a1a);
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(255, 107, 0, 0.3);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #ff6b00;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .chart-card {
+            background-color: rgba(26, 26, 26, 0.6);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Ensure a single column layout */
+            gap: 20px;
+        }
+        .card {
+            background-color: rgba(26, 26, 26, 0.6);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ff6b00;
+            color: #e0e0e0;
+        }
+        th {
+            background-color: rgba(26, 26, 26, 0.7);
+            color: #ff9d4d;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(26, 26, 26, 0.5);
+        }
+        tr:hover {
+            background-color: rgba(255, 107, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feedback Dashboard</h1>
+        
+        <!-- Spam vs. Authentic Chart -->
+        <div class="chart-card">
+            <h2>Spam vs. Authentic</h2>
+            <div id="spamChart" style="height: 300px;"></div>
+        </div>
+
+        <div class="grid">
+            <!-- Authentic Data Table -->
+            <div class="card">
+                <h2>Authentic Data</h2>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Rating</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Review</th>
+                    </tr>
+                    {% for entry in authentic_data %}
+                    <tr>
+                        <td>{{ entry['ID'] }}</td>
+                        <td>{{ entry['Name'] }}</td>
+                        <td>{{ entry['Rating'] }}</td>
+                        <td>{{ entry['Phone'] }}</td>
+                        <td>{{ entry['Email'] }}</td>
+                        <td>{{ entry['Review'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            
+            <!-- Bot Data Table -->
+
+<div class="card">
+    <h2>Bot Data</h2>
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>IP Address</th>
+            <th>User Agent</th>
+ 
+        </tr>
+        {% for entry in bot_data %}
+        <tr>
+            <td>{{ entry['Timestamp'] }}</td>
+            <td>{{ entry['IP Address'] }}</td>
+            <td>{{ entry['User Agent'] }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+        </div>
+    </div>
+
+    <script>
+        var spamChart = {{ spam_chart | safe }};
+        Plotly.newPlot('spamChart', spamChart.data, spamChart.layout);
+    </script>
+
+
+</body>
+</html>
