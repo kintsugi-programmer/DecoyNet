@@ -31,13 +31,13 @@ def brute_force_login(url, email, password_length, password_type):
 
 def main():
     ascii_art = r"""
-M#"""""""'M                                      dP       M#"""""""'M             dP   
-##  mmmm. `M                                     88       ##  mmmm. `M            88   
-#'        .M 88d888b. .d8888b. .d8888b. .d8888b. 88d888b. #'        .M .d8888b. d8888P 
-M#  MMMb.'YM 88'  `88 88ooood8 88'  `88 88'  `"" 88'  `88 M#  MMMb.'YM 88'  `88   88   
-M#  MMMM'  M 88       88.  ... 88.  .88 88.  ... 88    88 M#  MMMM'  M 88.  .88   88   
-M#       .;M dP       `88888P' `88888P8 `88888P' dP    dP M#       .;M `88888P'   dP   
-M#########M                                               M#########M                                                                              
+    M#"""""""'M                                      dP       M#"""""""'M             dP   
+    ##  mmmm. `M                                     88       ##  mmmm. `M            88   
+    #'        .M 88d888b. .d8888b. .d8888b. .d8888b. 88d888b. #'        .M .d8888b. d8888P 
+    M#  MMMb.'YM 88'  `88 88ooood8 88'  `88 88'  `"" 88'  `88 M#  MMMb.'YM 88'  `88   88   
+    M#  MMMM'  M 88       88.  ... 88.  .88 88.  ... 88    88 M#  MMMM'  M 88.  .88   88   
+    M#       .;M dP       `88888P' `88888P8 `88888P' dP    dP M#       .;M `88888P'   dP   
+    M#########M                                               M#########M                                                                              
     """
     print(ascii_art)
     print("Brute Force Login Bot")
