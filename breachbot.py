@@ -25,7 +25,7 @@ def brute_force_login(url, email, password_length, password_type):
         
         print(f'Trying password: {password} - Response: {response.status_code}')
         
-        if response.status_code == 200:  # Assuming 200 means successful login
+        if response.status_code == 300:  # Assuming 200 means successful login
             print(f'Success! The correct password is: {password}')
             return
 

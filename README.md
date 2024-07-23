@@ -7,22 +7,32 @@ This project is a Low-Interaction honeypot designed to attract and analyze unaut
 ## File Directory Structure
 
 ```plaintext
-kintsugi-warrior@kintsugi-machine:~/Documents/Warehouse2.0/Projects/DecoyNet$ ls -R
-.:
-app.py  Archive  data  formspamattack.py  README.md  requirements.txt  static  templates
+DecoyNet
+├── Archive
+│   ├── bot.py
+│   ├── dashboard.py
+│   └── README.md
+├── breachbot.py
+├── data
+│   ├── bot_trace.csv
+│   ├── login.csv
+│   ├── spams.csv
+│   └── submissions.csv
+├── formhpot.py
+├── formspamattack.py
+├── loginhpot.py
+├── README.md
+├── requirements.txt
+├── ss
+├── static
+│   ├── bg.png
+│   └── styles.css
+└── templates
+    ├── dashboard.html
+    ├── form.html
+    ├── index.html
+    └── login.html
 
-./Archive:
-bot.py  breachbot.py  dashboard.py  README.md
-
-./data:
-spams.csv  submissions.csv
-
-./static:
-styles.css
-
-./templates:
-dashboard.html  form.html  index.html
-kintsugi-warrior@kintsugi-machine:~/Documents/Warehouse2.0/Projects/DecoyNet$ 
 ```
 
 ## Installation and Setup
@@ -85,7 +95,9 @@ pip install -r requirements.txt
 Execute the honeypot application:
 
 ```bash
-python honeypot/app.py
+python loginhpot.py
+python formhpot.py
+
 ```
 
 ### 8. **Run Attack Bots**
@@ -102,7 +114,9 @@ python bot_scripts/form_spam_attack.py
 If your project includes a Flask application, run it:
 
 ```bash
-python app.py
+python loginhpot.py
+python formhpot.py
+
 ```
 
 Access the Flask app at `http://127.0.0.1:5000` in your browser.
@@ -140,11 +154,15 @@ source myenv/bin/activate
 pip install -r requirements.txt
 
 # Run applications
-python honeypot/app.py
-python bot_scripts/brute_force_login.py
-python bot_scripts/form_spam_attack.py
+python loginhpot.py
+python formhpot.py
+
+python brute_force_login.py
+python form_spam_attack.py
 # Or run Flask app if applicable
-python app.py
+python loginhpot.py
+python formhpot.py
+
 
 # Deactivate virtual environment
 deactivate
@@ -209,7 +227,9 @@ This differentiation allows the server to identify and filter out spam submissio
 
     - The Flask application runs a web server with endpoints that appear vulnerable to attackers.
     - It logs all incoming requests, including IP addresses, timestamps, and payloads.
-    - Data is stored in `data/attacks.csv`.
+    - Data is stored in .
+    - **Login Honeypot Server:** Simulates a decoy brute force attack security mechanism set to detect&deflect,by trying multiple password combinations on the login endpoint.
+    - **Form Honeypot :** Simulates a security mechanism set to detect&deflect spam attack by submitting multiple forms with random data.
 
 2. **Attack Bots:**
 
@@ -275,7 +295,11 @@ This bot combines various attack methods to simulate a more comprehensive breach
 ### Running the Honeypot Application
 
 ```bash
-python honeypot/app.py
+python loginhpot.py
+```
+
+```bash
+python formhpot.py
 ```
 
 ### Running the Attack Bots
@@ -283,13 +307,13 @@ python honeypot/app.py
 **Brute Force Login Bot:**
 
 ```bash
-python bot_scripts/brute_force_login.py
+python brute_force_login.py
 ```
 
 **Form Spam Attack Bot:**
 
 ```bash
-python bot_scripts/form_spam_attack.py
+python form_spam_attack.py
 ```
 
 ## Links and References

