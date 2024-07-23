@@ -4,11 +4,16 @@
 
 This project is a Low-Interaction honeypot designed to attract and analyze unauthorized access attempts. It consists of multiple bots designed to simulate various attack vectors, including brute force login attempts and form spam attacks. The honeypot collects data on these attacks, which can then be analyzed to improve security measures.
 
-![alt text](ss/image.gif)
-![alt text](ss/image-2.png)
-![alt text](ss/image0.png)
-![alt text](ss/image-8.png)
-![alt text](ss/image-9.png)
+<div style="; justify-content: space-between;">
+    <img src="ss/image.gif" alt="Image 1" width="150" style="margin-right: 5px;"/>
+    <img src="ss/image-2.png" alt="Image 2" width="150" style="margin-right: 5px;"/>
+    <img src="ss/image0.png" alt="Image 3" width="150"/>
+</div>
+<div style="; justify-content: space-between;">
+    <img src="ss/image-8.png" alt="Image 1" width="150" style="margin-right: 5px;"/>
+    <img src="ss/image-9.png" alt="Image 2" width="150" style="margin-right: 5px;"/>
+    <img src="ss/image-5.png" alt="Image 3" width="150"/>
+</div>
 
 ## Table of Contents
 
