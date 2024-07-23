@@ -1,8 +1,15 @@
 # DecoyNet : Low-Interaction Honeypots
-
+![alt text](ss/image-11.png)
 ## Project Overview
 
 This project is a Low-Interaction honeypot designed to attract and analyze unauthorized access attempts. It consists of multiple bots designed to simulate various attack vectors, including brute force login attempts and form spam attacks. The honeypot collects data on these attacks, which can then be analyzed to improve security measures.
+
+![alt text](ss/image.gif)
+![alt text](ss/image-2.png)
+![alt text](ss/image0.png)
+![alt text](ss/image-8.png)
+![alt text](ss/image-9.png)
+
 ## Table of Contents
 
 - [DecoyNet : Low-Interaction Honeypots](#decoynet--low-interaction-honeypots)
