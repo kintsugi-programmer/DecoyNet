@@ -4,17 +4,12 @@
 
 This project is a Low-Interaction honeypot designed to attract and analyze unauthorized access attempts. It consists of multiple bots designed to simulate various attack vectors, including brute force login attempts and form spam attacks. The honeypot collects data on these attacks, which can then be analyzed to improve security measures.
 
-Fun Fact : I was actually inspired after 'Mr. Robot' 'eps1.8_m1rr0r1ng.qt' & then i dig deep in internet and explore more about it and found Low_Interaction Honeypot Web server based,so i decided to make it up in 1-2 nightouts ;0
+Fun Fact : I was actually inspired after 'Mr. Robot' 'eps1.8_m1rr0r1ng.qt' & then i dig deep in internet and explore more about it and found Low_Interaction Honeypots,so i decided to make it Custom in 1-2 nightouts ;0
 
 <div style="; justify-content: space-between;">
-    <img src="ss/image.gif" alt="Image 1" width="300" style="margin-right: 5px;"/>
-    <img src="ss/image-2.png" alt="Image 2" width="300" style="margin-right: 5px;"/>
-    <img src="ss/image0.png" alt="Image 3" width="300"/>
-</div>
-<div style="; justify-content: space-between;">
-    <img src="ss/image-8.png" alt="Image 1" width="300" style="margin-right: 5px;"/>
-    <img src="ss/image-9.png" alt="Image 2" width="300" style="margin-right: 5px;"/>
-    <img src="ss/image-5.png" alt="Image 3" width="300"/>
+    <img src="ss/image.gif" alt="Image 1" width="200" style="margin-right: 5px;"/>
+    <img src="ss/image-2.png" alt="Image 2" width="200" style="margin-right: 5px;"/>
+    <img src="ss/image-8.png" alt="Image 3" width="200"/>
 </div>
 
 ## Table of Contents
@@ -226,12 +221,64 @@ The aim of this project is to create a honeypot that can attract and log various
 ### Honeypot Working
 
 The honeypot application runs a Flask server that simulates a vulnerable web application. It logs all incoming requests, including attempted logins and form submissions, and stores this data in a CSV file. This data is then used for analysis.
+```
 
+@app.route('/submit', methods=['POST'])
+def submit():
+    real_id = request.form.get('dtx000')
+    real_password = request.form.get('dtx001')
+ 
+    ip_address = request.remote_addr
+    user_agent = request.headers.get('User-Agent')
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    hpot_id = request.form.get('id')
+    hpot_password = request.form.get('password')
+
+    # Debugging
+    print(f"Real ID: {real_id}, Real Password: {real_password}")
+    print(f"Honeypot ID: {hpot_id}, Honeypot Password: {hpot_password}")
+
+    if hpot_id or hpot_password:
+        print("Honeypot triggered! Potential spam detected.")
+        with open(bot_trace, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                timestamp,
+                ip_address,
+                user_agent,
+                hpot_id,
+                hpot_password
+            ])
+        return redirect('/')
+
+    with open(data_file, 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([timestamp,
+                ip_address,
+                user_agent,
+                real_id, 
+                real_password])
+    
+    print("Form submitted successfully!")
+    return "Logged in successfully!"
+```
 
 - **Real Users**: Interact with and fill only the visible fields. The honeypot fields remain empty.
 - **Spam Bots**: Fill both the visible and hidden fields, triggering the honeypot detection.
 
 This differentiation allows the server to identify and filter out spam submissions while processing legitimate ones.
+```
+  .hpot {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+  }
+```
 
 ### Project Simple Working
 
@@ -270,7 +317,26 @@ This differentiation allows the server to identify and filter out spam submissio
 
 4. **Outcome**:
    - The user receives a confirmation message indicating that the form submission was successful.
-
+```
+            <label for="dtx000">Customer ID:</label>
+            <input type="text" id="dtx000" name="dtx000" required>
+            <label for="dtx001">Name:</label>
+            <input type="text" id="dtx001" name="dtx001" required>
+            <label for="dtx010">How would you rate our service?</label>
+            <select id="dtx010" name="dtx010" required>
+                <option value="">--Please choose an option--</option>
+                <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="average">Average</option>
+                <option value="poor">Poor</option>
+            </select>
+            <label for="dtx011">Phone Number:</label>
+            <input type="tel" id="dtx011" name="dtx011" required>
+            <label for="dtx100">Email:</label>
+            <input type="email" id="dtx100" name="dtx100" required>
+            <label for="dtx101">Review :</label>
+            <textarea id="review" name="dtx101" rows="4" required></textarea>
+```
 #### Spam Form Fill
 
 1. **Bot Interaction**:
@@ -288,16 +354,31 @@ This differentiation allows the server to identify and filter out spam submissio
 4. **Outcome**:
    - The bot does not receive any confirmation, and the spam data is not processed or saved by the server.
 
+```
+<label class="hpot" for="id"></label>
+            <input class="hpot" type="text" id="id" name="id" autocomplete="off" placeholder="ID">
+            <label class="hpot" for="name"></label>
+            <input class="hpot" type="text" id="name" name="name" autocomplete="off" placeholder="Name">
+            <label class="hpot" for="option"></label>
+            <input class="hpot" type="text" id="option" name="option" autocomplete="off" placeholder="Option">
+            <label class="hpot" for="phone"></label>
+            <input class="hpot" type="text" id="phone" name="phone" autocomplete="off" placeholder="Phone">
+            <label class="hpot" for="email"></label>
+            <input class="hpot" type="email" id="email" name="email" autocomplete="off" placeholder="Email">
+            <label class="hpot" for="review"></label>
+            <textarea class="hpot" id="review" name="review" rows="4" placeholder="Review"></textarea>
+```
 ## Bots
 
 ### BreachBot
 
 This bot simulates a brute force attack by trying various password combinations on a login endpoint. It uses the `requests` library to send POST requests and logs the results.
+![alt text](ss/image-2.png)
 
 ### Form Spam Attack Bot
 
 This bot simulates a form spam attack by submitting multiple forms with random data. It uses the `requests` library to send POST requests to the form endpoint.
-
+![alt text](ss/image-8.png)
 This bot combines various attack methods to simulate a more comprehensive breach attempt.
 
 ## Usage
