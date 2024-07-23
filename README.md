@@ -4,15 +4,17 @@
 
 This project is a Low-Interaction honeypot designed to attract and analyze unauthorized access attempts. It consists of multiple bots designed to simulate various attack vectors, including brute force login attempts and form spam attacks. The honeypot collects data on these attacks, which can then be analyzed to improve security measures.
 
+Fun Fact : I was actually inspired after 'Mr. Robot' 'eps1.8_m1rr0r1ng.qt' & then i dig deep in internet and explore more about it and found Low_Interaction Honeypot Web server based,so i decided to make it up in 1-2 nightouts ;0
+
 <div style="; justify-content: space-between;">
-    <img src="ss/image.gif" alt="Image 1" width="150" style="margin-right: 5px;"/>
-    <img src="ss/image-2.png" alt="Image 2" width="150" style="margin-right: 5px;"/>
-    <img src="ss/image0.png" alt="Image 3" width="150"/>
+    <img src="ss/image.gif" alt="Image 1" width="300" style="margin-right: 5px;"/>
+    <img src="ss/image-2.png" alt="Image 2" width="300" style="margin-right: 5px;"/>
+    <img src="ss/image0.png" alt="Image 3" width="300"/>
 </div>
 <div style="; justify-content: space-between;">
-    <img src="ss/image-8.png" alt="Image 1" width="150" style="margin-right: 5px;"/>
-    <img src="ss/image-9.png" alt="Image 2" width="150" style="margin-right: 5px;"/>
-    <img src="ss/image-5.png" alt="Image 3" width="150"/>
+    <img src="ss/image-8.png" alt="Image 1" width="300" style="margin-right: 5px;"/>
+    <img src="ss/image-9.png" alt="Image 2" width="300" style="margin-right: 5px;"/>
+    <img src="ss/image-5.png" alt="Image 3" width="300"/>
 </div>
 
 ## Table of Contents
